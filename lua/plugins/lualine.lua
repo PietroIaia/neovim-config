@@ -1,11 +1,10 @@
 local colors = {
-  blue   = '#80a0ff',
-  cyan   = '#79dac8',
-  black  = '#080808',
-  white  = '#c6c6c6',
-  red    = '#ff5189',
-  violet = '#d183e8',
-  grey   = '#303030',
+  black         = '#080808',
+  white         = '#c6c6c6',
+  grey          = '#303030',
+  violet        = '#cd9ae5',
+  purple        = '#584371',
+  darkpurple    = '#340152',
 }
 
 return {
@@ -16,15 +15,14 @@ return {
                 theme = {
                     normal = {
                         a = { fg = colors.black, bg = colors.violet },
-                        b = { fg = colors.white, bg = colors.grey },
+                        b = { fg = colors.white, bg = colors.purple },
                         c = { fg = colors.white }
                     },
-                    insert = { a = { fg = colors.black, bg = colors.blue } },
-                    visual = { a = { fg = colors.black, bg = colors.cyan } },
-                    replace = { a = { fg = colors.black, bg = colors.red } },
+                    insert = { a = { fg = colors.black, bg = colors.white } },
+                    visual = { a = { fg = colors.white, bg = colors.darkpurple } },
                     inactive = {
-                        a = { fg = colors.white, bg = colors.black },
-                        b = { fg = colors.white, bg = colors.black },
+                        a = { fg = colors.white, bg = colors.grey },
+                        b = { fg = colors.white, bg = colors.grey },
                         c = { fg = colors.white }
                     }
                 },
@@ -32,20 +30,20 @@ return {
                 section_separators = { left = '', right = '' }
             },
             sections = {
-                lualine_a = { { 'mode', color = { gui = 'bold' }, separator = { left = '' }, right_padding = 2 } },
+                lualine_a = { { 'mode', color = { gui = 'bold' }, separator = { left = '' } } },
                 lualine_b = { 'diagnostics', 'diff', 'branch', 'filename'},
                 lualine_c = {},
                 lualine_x = {},
                 lualine_y = { 'filetype', 'fileformat' },
-                lualine_z = { { 'location', color = { gui = 'bold' }, separator = { right = '' }, left_padding = 2 } }
+                lualine_z = { { 'location', color = { gui = 'bold' }, separator = { right = '' } } }
             },
             inactive_sections = {
-                lualine_a = { 'filename' },
+                lualine_a = { { 'filename', separator = { left = '', right = '' } } },
                 lualine_b = {},
                 lualine_c = {},
                 lualine_x = {},
                 lualine_y = {},
-                lualine_z = { 'location' }
+                lualine_z = { { 'location', separator = { left = '', right = '' } } }
             },
             tabline = {},
             extensions = {}
