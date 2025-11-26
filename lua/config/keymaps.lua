@@ -2,7 +2,6 @@
 vim.keymap.set('n', '<leader><Left>', '<C-w>h')
 vim.keymap.set('n', '<leader><Right>', '<C-w>l')
 
-
 -- LSP Keymaps
 vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end)
 vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end)
@@ -12,7 +11,6 @@ vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end)
 vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end)
 vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end)
 vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end)
-
 
 -- Telescope Keymaps
 local telescope = require("telescope.builtin")
@@ -45,10 +43,7 @@ vim.keymap.set("n", "<leader>Y", "\"+Y")
 
 vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
 
-
 -- nvim-tree keymaps
-local nvim_tree = require("nvim-tree.api")
-
 vim.keymap.set("n", "<C-b>", vim.cmd.NvimTreeToggle)
 vim.keymap.set("n", "<C-h>", vim.cmd.NvimTreeCollapse)
 
@@ -72,7 +67,7 @@ vim.keymap.set('n', '<C-0>', vim.cmd.BufferLast)
 
 -- blink keymaps
 -- Accept completion with Enter
-vim.keymap.set('i', '<CR>', function()
+vim.keymap.set('i', '<C-CR>', function()
   local blink = require('blink.cmp')
   if blink.is_visible() then
     return blink.accept()
@@ -82,21 +77,18 @@ vim.keymap.set('i', '<CR>', function()
 end, { expr = true, silent = true })
 
 -- Navigate down in completion menu
-vim.keymap.set('i', '<Down>', function()
+vim.keymap.set('i', '<C-Down>', function()
   local blink = require('blink.cmp')
   if blink.is_visible() then
     blink.select_next({ wrap = true })
-  else
-    return '<Down>'
   end
 end, { expr = true, silent = true })
 
 -- Navigate up in completion menu
-vim.keymap.set('i', '<Up>', function()
+vim.keymap.set('i', '<C-Up>', function()
   local blink = require('blink.cmp')
   if blink.is_visible() then
     blink.select_prev({ wrap = true })
-  else
-    return '<Up>'
   end
 end, { expr = true, silent = true })
+
