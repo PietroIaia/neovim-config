@@ -1,6 +1,15 @@
 -- Nvim Keymaps
 vim.keymap.set('n', '<leader><Left>', '<C-w>h')
 vim.keymap.set('n', '<leader><Right>', '<C-w>l')
+vim.keymap.set('n', '<leader><Down>', '<C-w>j')
+vim.keymap.set('n', '<leader><Up>', '<C-w>k')
+vim.keymap.set("n", "y", "\"+y")
+vim.keymap.set("v", "y", "\"+y")
+vim.keymap.set("n", "<leader>y", "\"+Y")
+vim.keymap.set("n", "<leader>i", "viw")
+vim.keymap.set("n", "<S-Down>", "<C-d>zz")
+vim.keymap.set("n", "<S-Up>", "<C-u>zz")
+
 
 -- LSP Keymaps
 vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end)
@@ -12,13 +21,21 @@ vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end)
 vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end)
 vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end)
 
+
 -- Telescope Keymaps
 local telescope = require("telescope.builtin")
 
 vim.keymap.set("n", "<leader>pf", telescope.find_files, {})
 vim.keymap.set("n", "<C-p>", telescope.git_files, {})
 vim.keymap.set("n", "<leader>ps", function()
-	telescope.grep_string({ search = vim.fn.input("Grep > ")});
+	telescope.grep_string({ search = vim.fn.input("Find > ", vim.fn.expand("<cword>")) });
+end)
+vim.keymap.set("v", "<leader>ps", function()
+	local saved_reg = vim.fn.getreg('"')
+	vim.cmd('noau normal! "vy"')
+	local selection = vim.fn.getreg('v')
+	vim.fn.setreg('"', saved_reg)
+	telescope.grep_string({ search = vim.fn.input("Find > ", selection) });
 end)
 
 
@@ -29,17 +46,6 @@ vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 -- ThePrimeagen keymaps
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
-
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "n", "Nzzzv")
-
-vim.keymap.set("x", "<leader>p", "\"_dP")
-
-vim.keymap.set("n", "<leader>y", "\"+y")
-vim.keymap.set("v", "<leader>y", "\"+y")
-vim.keymap.set("n", "<leader>Y", "\"+Y")
 
 vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
 
