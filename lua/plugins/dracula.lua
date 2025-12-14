@@ -3,7 +3,8 @@ return {
     config = function()
         require("dracula").setup({
             colors = {
-                bright_magenta = "#F6C1FF"
+                bright_magenta = "#F6C1FF",
+                bright_blue = "#E9D4FE"
             },
             overrides = function (colors)
                 return {
