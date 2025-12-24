@@ -9,6 +9,8 @@ vim.keymap.set("n", "<leader>y", "\"+Y")
 vim.keymap.set("n", "<leader>i", "viw")
 vim.keymap.set("n", "<S-Down>", "<C-d>zz")
 vim.keymap.set("n", "<S-Up>", "<C-u>zz")
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { silent = true })
+vim.keymap.set('v', 'p', '"_dP', { silent = true })
 
 
 -- LSP Keymaps
