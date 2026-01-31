@@ -4,6 +4,9 @@ local lsps = {
     }},
     { "html" },
     { "rust-analyzer" },
+    { "csharp_ls", {
+        cmd = { "csharp-language-server" },
+    }},
     { "pyright" },
     { "dockerls" },
     { "docker_compose_language_service" }
