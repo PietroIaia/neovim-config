@@ -35,7 +35,7 @@ return {
                 lualine_c = {},
                 lualine_x = {},
                 lualine_y = { 'filetype', 'fileformat' },
-                lualine_z = { { 'location', color = { gui = 'bold' }, separator = { right = '' } } }
+                lualine_z = { { 'location', color = { gui = 'bold' }, separator = { '', '' } }, { 'progress', color = { gui = 'bold' }, separator = { right = '' } } }
             },
             inactive_sections = {
                 lualine_a = { { 'filename', separator = { left = '', right = '' } } },

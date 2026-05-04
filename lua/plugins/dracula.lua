@@ -1,8 +1,11 @@
 return {
     "Mofiqul/dracula.nvim",
     config = function()
+        local palette = require("_palette")
         require("dracula").setup({
             colors = {
+                bg = palette.view_bg,
+                menu = palette.view_bg,
                 bright_magenta = "#F6C1FF",
                 bright_blue = "#E9D4FE"
             },
